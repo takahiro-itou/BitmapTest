@@ -1,6 +1,8 @@
 
 Imports System.Runtime.InteropServices
 
+Module WinAPI
+
 Public Const SRCAND As Integer = &H8800C6
 Public Const SRCCOPY As Integer = &HCC0020
 Public Const SRCPAINT As Integer = &HEE0086
@@ -22,7 +24,18 @@ End Function
 Public Function DeleteDC(ByVal hDC As IntPtr) As Integer
 End Function
 
+<DllImport("user32.dll")> _
+Public Function GetDC(ByVal hWnd As IntPtr) As IntPtr
+End Function
+
+<DllImport("user32.dll")> _
+Public Function ReleaseDC(ByVal hWnd As IntPtr, _
+    ByVal hDC As IntPtr) As IntPtr
+End Function
+
 <DllImport("gdi32.dll")> _
 Public Function SelectObject( _
     ByVal hDC As IntPtr, ByVal hGdiObj As IntPtr) As IntPtr
 End Function
+
+End Module
