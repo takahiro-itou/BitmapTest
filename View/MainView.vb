@@ -20,7 +20,7 @@ Dim grpBuffer As System.Drawing.Graphics
     imgCanvas = New System.Drawing.Bitmap(300, 300)
     grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
     grpCanvas.FillRectangle(Brushes.White, grpCanvas.VisibleClipBounds)
-    grpCanvas.DrawImage(imgWork, 50, 100, 200, 100)
+    grpCanvas.DrawImage(imgBuffer, 50, 100, 200, 100)
     grpCanvas.Dispose()
 
     picView.Image = imgCanvas
