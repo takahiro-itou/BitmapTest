@@ -6,13 +6,21 @@ Private Sub RunCommand()
 ''--------------------------------------------------------------------
 Dim imgCanvas As System.Drawing.Bitmap
 Dim grpCanvas As System.Drawing.Graphics
+Dim imgBuffer As System.Drawing.Bitmap
+Dim grpBuffer As System.Drawing.Graphics
+
+    imgBuffer = New System.Drawing.Bitmap(200, 100)
+    grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
+
+    grpBuffer.FillRectangle(Brushes.Black, grpBuffer.VisibleClipBounds)
+    grpBuffer.DrawRectangle(Pens.Yellow, 50, 30, 100, 60)
+    grpBuffer.DrawPie(Pens.Red, 60, 10, 80, 80, 30, 300)
+    grpBuffer.Dispose()
 
     imgCanvas = New System.Drawing.Bitmap(300, 300)
     grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
-
-    grpCanvas.FillRectangle(Brushes.Black, grpCanvas.VisibleClipBounds)
-    grpCanvas.DrawRectangle(Pens.Yellow, 50, 30, 100, 60)
-    grpCanvas.DrawPie(Pens.Red, 60, 10, 80, 80, 30, 300)
+    grpCanvas.FillRectangle(Brushes.White, grpCanvas.VisibleClipBounds)
+    grpCanvas.DrawImage(imgWork, 50, 100, 200, 100)
     grpCanvas.Dispose()
 
     picView.Image = imgCanvas
