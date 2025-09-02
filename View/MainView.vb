@@ -8,6 +8,10 @@ Dim imgCanvas As System.Drawing.Bitmap
 Dim grpCanvas As System.Drawing.Graphics
 Dim imgBuffer As System.Drawing.Bitmap
 Dim grpBuffer As System.Drawing.Graphics
+Dim hDisplayDC As IntPtr
+Dim hDC As IntPtr
+
+    hDisplayDC = GetDC(IntPtr.Zero)
 
     imgBuffer = New System.Drawing.Bitmap(200, 100)
     grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
@@ -20,6 +24,13 @@ Dim grpBuffer As System.Drawing.Graphics
     imgCanvas = New System.Drawing.Bitmap(300, 300)
     grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
     grpCanvas.FillRectangle(Brushes.White, grpCanvas.VisibleClipBounds)
+
+    hDC = grpCanvas.GetHdc()
+    BitBlt(hDC, 8, 8, 284, 284, hDisplayDC, 0, 0, SRCCOPY)
+    grpCanvas.ReleaseHdc(hDC)
+
+    ReleaseDC(IntPtr.Zero, hDisplayDC)
+
     grpCanvas.DrawImage(imgBuffer, 50, 100, 200, 100)
     grpCanvas.Dispose()
 
