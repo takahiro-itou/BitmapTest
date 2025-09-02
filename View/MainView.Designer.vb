@@ -33,11 +33,8 @@ Partial Class MainView
 
         dlgOpen = New OpenFileDialog()
 
-        Label1 = New Label()
-        txtCommand = New TextBox()
-        btnRun = New Button()
-        txtOutput = New TextBox()
-
+        picView = New PictureBox()
+        CType(picView, ComponentModel.ISupportInitialize).BeginInit()
         mnuMain.SuspendLayout()
         Me.SuspendLayout()
 
@@ -77,28 +74,11 @@ Partial Class MainView
         dlgOpen.FileName = "dlgOpen"
 
         '
-        ' Label1
+        ' picView
         '
-        resources.ApplyResources(Label1, "Label1")
-        Label1.Name = "Label1"
-        '
-        ' txtCommand
-        '
-        resources.ApplyResources(txtCommand, "txtCommand")
-        txtCommand.Name = "txtCommand"
-        '
-        ' btnRun
-        '
-        resources.ApplyResources(btnRun, "btnRun")
-        btnRun.Name = "btnRun"
-        btnRun.UseVisualStyleBackColor = True
-        '
-        ' txtOutput
-        '
-        resources.ApplyResources(txtOutput, "txtOutput")
-        txtOutput.Name = "txtOutput"
-        txtOutput.BackColor = SystemColors.Window
-        txtOutput.ReadOnly = True
+        resources.ApplyResources(picView, "picView")
+        picView.Name = "picView"
+        picView.TabStop = False
 
         '
         ' MainView
@@ -114,8 +94,9 @@ Partial Class MainView
         Me.MainMenuStrip = mnuMain
         Me.Name = "MainView"
 
-        Me.mnuMain.ResumeLayout(False)
-        Me.mnuMain.PerformLayout()
+        mnuMain.ResumeLayout(False)
+        CType(picView, ComponentModel.ISupportInitialize).EndInit()
+        mnuMain.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
     End Sub
@@ -128,9 +109,6 @@ Partial Class MainView
 
     Friend WithEvents dlgOpen As OpenFileDialog
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtCommand As TextBox
-    Friend WithEvents btnRun As Button
-    Friend WithEvents txtOutput As TextBox
+    Friend WithEvents picView As PictureBox
 
 End Class
