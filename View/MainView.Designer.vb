@@ -87,10 +87,7 @@ Partial Class MainView
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.Controls.Add(mnuMain)
-        Me.Controls.Add(Label1)
-        Me.Controls.Add(txtCommand)
-        Me.Controls.Add(btnRun)
-        Me.Controls.Add(txtOutput)
+        Me.Controls.Add(picView)
         Me.MainMenuStrip = mnuMain
         Me.Name = "MainView"
 
