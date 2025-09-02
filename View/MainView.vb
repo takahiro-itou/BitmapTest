@@ -17,6 +17,14 @@ Dim hDC As IntPtr
     grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
 
     grpBuffer.FillRectangle(Brushes.Black, grpBuffer.VisibleClipBounds)
+
+    hDC = grpBuffer.GetHdc()
+    BitBlt(hDC, 8, 8, 184, 184, hDisplayDC,
+            Screen.PrimaryScreen.Bounds.Width - 184,
+            Screen.PrimaryScreen.Bounds.Height - 184,
+            SRCCOPY)
+    grpBuffer.ReleaseHdc(hDC)
+
     grpBuffer.DrawRectangle(Pens.Yellow, 50, 30, 100, 60)
     grpBuffer.DrawPie(Pens.Red, 60, 10, 80, 80, 30, 300)
     grpBuffer.Dispose()
