@@ -299,4 +299,26 @@
     <value>Outputs</value>
   </data>
 
+  <data name="&gt;&gt;picView.Name" xml:space="preserve">
+    <value>picView</value>
+  </data>
+  <data name="&gt;&gt;picView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;picView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="picView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 36</value>
+  </data>
+  <data name="picView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>640, 400</value>
+  </data>
+  <data name="picView.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+
 </root>
