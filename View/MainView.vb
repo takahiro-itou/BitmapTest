@@ -23,9 +23,9 @@ Dim colorBG As Color
     grpBuffer.FillRectangle(brushBG, grpBuffer.VisibleClipBounds)
 
     hDC = grpBuffer.GetHdc()
-    BitBlt(hDC, 8, 8, 184, 184, hDisplayDC,
+    BitBlt(hDC, 8, 8, 184, 84, hDisplayDC,
             Screen.PrimaryScreen.Bounds.Width - 184,
-            Screen.PrimaryScreen.Bounds.Height - 184,
+            Screen.PrimaryScreen.Bounds.Height - 84,
             SRCCOPY)
     grpBuffer.ReleaseHdc(hDC)
 
