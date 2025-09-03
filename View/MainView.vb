@@ -20,7 +20,8 @@ Dim colorBG As Color
 
     colorBG = Color.FromArgb(&HFFBAF0FE)
     brushBG = New SolidBrush(colorBG)
-    grpBuffer.FillRectangle(brushBG, grpBuffer.VisibleClipBounds)
+    ' grpBuffer.FillRectangle(brushBG, grpBuffer.VisibleClipBounds)
+    grpBuffer.FillRectangle(brushBG, 0, 0, 200, 100)
 
     hDC = grpBuffer.GetHdc()
     BitBlt(hDC, 8, 8, 184, 84, hDisplayDC,
@@ -38,7 +39,8 @@ Dim colorBG As Color
 
     colorBG = Color.FromArgb(&H8000FF00)
     brushBG = New SolidBrush(colorBG)
-    grpCanvas.FillRectangle(brushBG, grpCanvas.VisibleClipBounds)
+    ' grpCanvas.FillRectangle(brushBG, grpCanvas.VisibleClipBounds)
+    grpCanvas.FillRectangle(brushBG, 0, 0, 300, 300)
 
     hDC = grpCanvas.GetHdc()
     BitBlt(hDC, 8, 8, 284, 284, hDisplayDC, 0, 0, SRCCOPY)
