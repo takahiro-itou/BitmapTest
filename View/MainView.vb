@@ -10,18 +10,23 @@ Dim imgBuffer As System.Drawing.Bitmap
 Dim grpBuffer As System.Drawing.Graphics
 Dim hDisplayDC As IntPtr
 Dim hDC As IntPtr
+Dim brushBG As SolidBrush
+Dim colorBG As Color
 
     hDisplayDC = GetDC(IntPtr.Zero)
 
     imgBuffer = New System.Drawing.Bitmap(200, 100)
     grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
 
-    grpBuffer.FillRectangle(Brushes.Black, grpBuffer.VisibleClipBounds)
+    colorBG = Color.FromArgb(&HFFBAF0FE)
+    brushBG = New SolidBrush(colorBG)
+    ' grpBuffer.FillRectangle(brushBG, grpBuffer.VisibleClipBounds)
+    grpBuffer.FillRectangle(brushBG, 0, 0, 200, 100)
 
     hDC = grpBuffer.GetHdc()
-    BitBlt(hDC, 8, 8, 184, 184, hDisplayDC,
+    BitBlt(hDC, 8, 8, 184, 84, hDisplayDC,
             Screen.PrimaryScreen.Bounds.Width - 184,
-            Screen.PrimaryScreen.Bounds.Height - 184,
+            Screen.PrimaryScreen.Bounds.Height - 84,
             SRCCOPY)
     grpBuffer.ReleaseHdc(hDC)
 
@@ -31,7 +36,11 @@ Dim hDC As IntPtr
 
     imgCanvas = New System.Drawing.Bitmap(300, 300)
     grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
-    grpCanvas.FillRectangle(Brushes.White, grpCanvas.VisibleClipBounds)
+
+    colorBG = Color.FromArgb(&H8000FF00)
+    brushBG = New SolidBrush(colorBG)
+    ' grpCanvas.FillRectangle(brushBG, grpCanvas.VisibleClipBounds)
+    grpCanvas.FillRectangle(brushBG, 0, 0, 300, 300)
 
     hDC = grpCanvas.GetHdc()
     BitBlt(hDC, 8, 8, 284, 284, hDisplayDC, 0, 0, SRCCOPY)
