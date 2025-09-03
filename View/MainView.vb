@@ -4,7 +4,45 @@ Private Sub RunCommand()
 ''--------------------------------------------------------------------
 ''    指定したコマンドを実行する。
 ''--------------------------------------------------------------------
+Dim imgCanvas As System.Drawing.Bitmap
+Dim grpCanvas As System.Drawing.Graphics
+Dim imgBuffer As System.Drawing.Bitmap
+Dim grpBuffer As System.Drawing.Graphics
+Dim hDisplayDC As IntPtr
+Dim hDC As IntPtr
 
+    hDisplayDC = GetDC(IntPtr.Zero)
+
+    imgBuffer = New System.Drawing.Bitmap(200, 100)
+    grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
+
+    grpBuffer.FillRectangle(Brushes.Black, grpBuffer.VisibleClipBounds)
+
+    hDC = grpBuffer.GetHdc()
+    BitBlt(hDC, 8, 8, 184, 184, hDisplayDC,
+            Screen.PrimaryScreen.Bounds.Width - 184,
+            Screen.PrimaryScreen.Bounds.Height - 184,
+            SRCCOPY)
+    grpBuffer.ReleaseHdc(hDC)
+
+    grpBuffer.DrawRectangle(Pens.Yellow, 50, 30, 100, 60)
+    grpBuffer.DrawPie(Pens.Red, 60, 10, 80, 80, 30, 300)
+    grpBuffer.Dispose()
+
+    imgCanvas = New System.Drawing.Bitmap(300, 300)
+    grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
+    grpCanvas.FillRectangle(Brushes.White, grpCanvas.VisibleClipBounds)
+
+    hDC = grpCanvas.GetHdc()
+    BitBlt(hDC, 8, 8, 284, 284, hDisplayDC, 0, 0, SRCCOPY)
+    grpCanvas.ReleaseHdc(hDC)
+
+    ReleaseDC(IntPtr.Zero, hDisplayDC)
+
+    grpCanvas.DrawImage(imgBuffer, 50, 100, 200, 100)
+    grpCanvas.Dispose()
+
+    picView.Image = imgCanvas
 End Sub
 
 
