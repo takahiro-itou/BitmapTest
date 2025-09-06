@@ -18,7 +18,7 @@ Dim colorBG As Color
     imgBuffer = New System.Drawing.Bitmap(200, 100)
     grpBuffer = System.Drawing.Graphics.FromImage(imgBuffer)
 
-    colorBG = Color.FromArgb(&HFFBAF0FE)
+    colorBG = Color.FromArgb(&HFFFEF0BA)
     brushBG = New SolidBrush(colorBG)
     ' grpBuffer.FillRectangle(brushBG, grpBuffer.VisibleClipBounds)
     grpBuffer.FillRectangle(brushBG, 0, 0, 200, 100)
@@ -37,7 +37,7 @@ Dim colorBG As Color
     imgCanvas = New System.Drawing.Bitmap(300, 300)
     grpCanvas = System.Drawing.Graphics.FromImage(imgCanvas)
 
-    colorBG = Color.FromArgb(&H8000FF00)
+    colorBG = Color.FromArgb(&H800000FF)
     brushBG = New SolidBrush(colorBG)
     ' grpCanvas.FillRectangle(brushBG, grpCanvas.VisibleClipBounds)
     grpCanvas.FillRectangle(brushBG, 0, 0, 300, 300)
